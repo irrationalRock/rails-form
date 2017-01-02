@@ -1,0 +1,30 @@
+<h1>This is the new view </h1>
+<!-- the normal way of doing forms
+<form action="/users" method="post" accept-charset="UTF-8">
+	Username: <input type="text" name="user[username]"> <br>
+  Password: <input type="text" name="user[password]"> <br>
+  Email: <input type="text" name="user[email]"> <br>
+	<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">	
+	<input type="submit" value="Submit This Form">
+</form>
+
+-->
+<!-- a rails way of doing things
+<%= form_tag("/users", method:"post") do %>
+	<%= label_tag(:username, "Username: ") %>
+	<%= text_field_tag(:username) %>
+	<%= label_tag(:password, "Password: ") %>
+	<%= text_field_tag(:password) %>
+	<%= label_tag(:email, "Email: ") %>
+	<%= text_field_tag(:email) %>
+	<%= submit_tag("Submit this form") %>
+<% end %>
+
+-->
+
+<%= form_for @user do |f| %>
+  Username: <%= f.text_field :username %>
+	Password: <%= f.text_field :password %>
+	Email:  <%= f.text_field :email %>
+	<%= f.submit "Create" %>
+<% end %>

@@ -1,0 +1,13 @@
+<h1>This is the edit view </h1>
+<ul>
+  <% @user.errors.full_messages.each do |error| %>
+  <li><%= error %></li>
+  <% end %>
+</ul>
+<!--use (@user) to use edit  -->
+<%= form_for (@user) do |f| %>
+  Username: <%= f.text_field :username %>
+	Password: <%= f.text_field :password %>
+	Email:  <%= f.text_field :email %>
+	<%= f.submit "Create" %>
+<% end %>
